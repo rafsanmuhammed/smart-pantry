@@ -1,4 +1,4 @@
-# 🍏 Smart Pantry Tracker
+# Smart Pantry Tracker
 > *A full-stack sustainable living application to reduce food waste.*
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python&logoColor=white)
@@ -32,3 +32,4 @@ If you want to run this locally:
    ```bash
    git clone [https://github.com/fsanmuhammed/smart-pantry.git](https://github.com/fsanmuhammed/smart-pantry.git)
    cd smart-pantry
+
