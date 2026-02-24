@@ -8,8 +8,16 @@ app = Flask(__name__)
 
 # CONFIGURATION 
 # Use a local file for dev, but allow an environment variable for production (Render/Heroku)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL') or 'sqlite:///pantry.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# --- CONFIGURATION ---
+# Get the database URL from the environment
+db_url = os.environ.get('DATABASE_URL', 'sqlite:///pantry.db')
+
+# Fix for Render's URL format (postgres:// -> postgresql://)
+if db_url.startswith("postgres://"):
+    db_url = db_url.replace("postgres://", "postgresql://", 1)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = db_url
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
 
 db.init_app(app) 
 
